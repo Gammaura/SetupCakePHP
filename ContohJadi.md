@@ -1,7 +1,3 @@
-Berikut dokumen final yang sudah diupdate semua:
-
----
-
 # 🚀 Setup CakePHP di WSL (Windows)
 
 Panduan setup project CakePHP secara lokal menggunakan WSL (Windows Subsystem for Linux).
@@ -52,7 +48,7 @@ sudo chmod -R 777 /var/www/html/pjk3/app/tmp/
 ```bash
 sudo service mysql start
 mysql -u root -e "CREATE DATABASE pjk3_db;"
-mysql -u root pjk3_db < '/var/www/html/pjk3/file.sql'
+sudo mysql -u root pjk3_db < '/var/www/html/pjk3/file.sql'
 ```
 
 Pastikan konfigurasi database di `app/Config/database.php` sudah sesuai:
