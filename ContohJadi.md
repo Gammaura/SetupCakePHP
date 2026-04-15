@@ -126,7 +126,7 @@ Jalankan perintah berikut di WSL untuk mendapatkan IP:
 hostname -I
 ```
 
-Catat IP-nya (contoh: `172.25.234.146`).
+Catat IP-nya (contoh: `172.12.234.456`).
 
 ---
 
