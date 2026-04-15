@@ -22,8 +22,8 @@ Panduan setup project CakePHP secara lokal menggunakan WSL (Windows Subsystem fo
 ### 1. Clone & Pull Project
 
 ```bash
-git clone https://gitlab.com/miznokruge/cake-base-app.git pkj3
-cd pkj3
+git clone https://gitlab.com/miznokruge/cake-base-app.git pjk3
+cd pjk3
 git pull
 ```
 
@@ -32,8 +32,8 @@ git pull
 ### 2. Copy Project ke /var/www/html
 
 ```bash
-sudo cp -r /path/to/pkj3 /var/www/html/
-sudo chown -R $USER:$USER /var/www/html/pkj3
+sudo cp -r /path/to/pjk3 /var/www/html/
+sudo chown -R $USER:$USER /var/www/html/pjk3
 ```
 
 ---
@@ -41,8 +41,8 @@ sudo chown -R $USER:$USER /var/www/html/pkj3
 ### 3. Buat Folder Cache
 
 ```bash
-sudo mkdir -p /var/www/html/pkj3/app/tmp/cache/{short,long,forever,models,views}
-sudo chmod -R 777 /var/www/html/pkj3/app/tmp/
+sudo mkdir -p /var/www/html/pjk3/app/tmp/cache/{short,long,forever,models,views}
+sudo chmod -R 777 /var/www/html/pjk3/app/tmp/
 ```
 
 ---
@@ -51,8 +51,8 @@ sudo chmod -R 777 /var/www/html/pkj3/app/tmp/
 
 ```bash
 sudo service mysql start
-mysql -u root -e "CREATE DATABASE pkj3_db;"
-mysql -u root pkj3_db < '/var/www/html/pkj3/file.sql'
+mysql -u root -e "CREATE DATABASE pjk3_db;"
+mysql -u root pjk3_db < '/var/www/html/pjk3/file.sql'
 ```
 
 Pastikan konfigurasi database di `app/Config/database.php` sudah sesuai:
@@ -63,7 +63,7 @@ public $default = array(
     'host'       => 'localhost',
     'login'      => 'root',
     'password'   => '',
-    'database'   => 'pkj3_db',
+    'database'   => 'pjk3_db',
 );
 ```
 
@@ -72,24 +72,24 @@ public $default = array(
 ### 5. Buat Virtual Host Apache
 
 ```bash
-sudo nano /etc/apache2/sites-available/pkj3.local.conf
+sudo nano /etc/apache2/sites-available/pjk3.local.conf
 ```
 
 Isi dengan konfigurasi berikut:
 
 ```apache
 <VirtualHost *:80>
-    ServerName pkj3.local
-    DocumentRoot /var/www/html/pkj3/app/webroot
+    ServerName pjk3.local
+    DocumentRoot /var/www/html/pjk3/app/webroot
 
-    <Directory /var/www/html/pkj3/app/webroot>
+    <Directory /var/www/html/pjk3/app/webroot>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/pkj3.local-error.log
-    CustomLog ${APACHE_LOG_DIR}/pkj3.local-access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/pjk3.local-error.log
+    CustomLog ${APACHE_LOG_DIR}/pjk3.local-access.log combined
 </VirtualHost>
 ```
 
@@ -98,7 +98,7 @@ Isi dengan konfigurasi berikut:
 ### 6. Enable Vhost & Restart Apache
 
 ```bash
-sudo a2ensite pkj3.local.conf
+sudo a2ensite pjk3.local.conf
 sudo a2dissite 000-default.conf
 sudo a2enmod rewrite
 sudo service apache2 restart
@@ -117,7 +117,7 @@ C:\Windows\System32\drivers\etc\hosts
 Tambahkan baris berikut di bagian paling bawah:
 
 ```
-127.0.0.1   pkj3.local
+127.0.0.1   pjk3.local
 ```
 
 ---
@@ -157,7 +157,7 @@ ipconfig /flushdns
 Lalu buka browser dan akses:
 
 ```
-http://pkj3.local
+http://pjk3.local
 ```
 
 ---
